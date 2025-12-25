@@ -1,0 +1,47 @@
+@import "tailwindcss";
+@import "tailwind-scrollbar-hide/v4";
+
+@plugin "tailwindcss-motion";
+@plugin "tailwind-scrollbar";
+
+@theme {
+  --aspect-a4: 210 / 297;
+}
+@theme {
+  --color-primary-50: #faf8f6;
+  --color-primary-100: #f4efec;
+  --color-primary-200: #ece2dc;
+  --color-primary-300: #e2d3ca;
+  --color-primary-400: #caaf9f;
+  --color-primary-500: #b4937f;
+  --color-primary-600: #9d7a65;
+  --color-primary-700: #836452;
+  --color-primary-800: #6e5546;
+  --color-primary-900: #5d4a3f;
+  --color-primary-950: #31251e;
+
+  --color-secondary-50: #f5f7f9;
+  --color-secondary-100: #e7ecf2;
+  --color-secondary-200: #cad5e2;
+  --color-secondary-300: #b8c7d8;
+  --color-secondary-400: #96acc4;
+  --color-secondary-500: #7c93b5;
+  --color-secondary-600: #6a7ea6;
+  --color-secondary-700: #5e6e97;
+  --color-secondary-800: #515c7c;
+  --color-secondary-900: #444c64;
+  --color-secondary-950: #2c313f;
+}
+
+.event-lock {
+  position: relative;
+}
+
+.event-lock::after {
+  content: "";
+  @apply absolute inset-0 bg-transparent;
+}
+
+.container {
+  @apply container mx-auto px-16;
+}
