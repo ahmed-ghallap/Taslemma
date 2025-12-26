@@ -7,7 +7,10 @@ const DocumentDispatchContext = createContext(null);
 const DocumentHistoryContext = createContext(null);
 
 export const DocumentProvider = ({ children }) => {
-  const [data, dispatch] = useReducer(documentReducer, TEMPLATES.blank);
+  const [data, dispatch] = useReducer(
+    withHistoryLimit(documentReducer),
+    TEMPLATES.blank,
+  );
   const history = { past: data.past, future: data.future };
   return (
     <DocumentDispatchContext value={dispatch}>
@@ -117,3 +120,13 @@ const documentReducer = (state, action) => {
     }
   }
 };
+
+function withHistoryLimit(reducer, limit = 50) {
+  return (state, action) => {
+    const nextState = reducer(state, action);
+    if (nextState.past && nextState.past.length > limit) {
+      return { ...nextState, past: nextState.past.slice(-limit) };
+    }
+    return nextState;
+  };
+}
