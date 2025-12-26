@@ -26,7 +26,7 @@ const TEMPLATES = {
         "EXPORT PDF or Image",
       ],
 
-      logo: blank,
+      logo: null,
 
       heading: "Start with one of our templates",
       subHeading: "⬅️ There are",

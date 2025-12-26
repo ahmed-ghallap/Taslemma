@@ -21,12 +21,17 @@ export default function EditableImage() {
   const ImageView = (
     <div
       onClick={() => inputRef.current.click()}
-      className="group relative aspect-square cursor-pointer overflow-hidden rounded-full"
+      className={
+        "group relative aspect-square h-full w-full cursor-pointer overflow-hidden rounded-full " +
+        (logo === null ? "bg-primary-300 border-primary-600 border" : "")
+      }
     >
-      <img
-        className="h-full w-full cursor-pointer rounded-full object-cover transition-all duration-300 ease-in-out hover:scale-110"
-        src={logo}
-      />
+      {logo && (
+        <img
+          className="h-full w-full cursor-pointer rounded-full object-cover transition-all duration-300 ease-in-out hover:scale-110"
+          src={logo}
+        />
+      )}
 
       <div className="motion-bg-out-primary-950/60 motion-duration-200 absolute inset-0 hidden h-full w-full place-items-center group-hover:grid">
         <ImageUp className="text-gray-200" size={32} />
