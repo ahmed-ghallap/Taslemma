@@ -10,7 +10,7 @@ export default function PageCanvas({ className, editable = false, ref }) {
   return (
     <article dir={dir} ref={ref} className="@container">
       <div
-        className={`aspect-a4 @container flex h-auto w-full flex-col overflow-hidden bg-white p-[5cqi] ${className} ${editable ? "" : "event-lock"}`}
+        className={`aspect-a4 @container flex h-auto w-full flex-col overflow-hidden rounded-xl bg-white p-[5cqi] shadow-sm ${className} ${editable ? "" : "event-lock"}`}
       >
         <PageHeader editable={editable}></PageHeader>
         <PageContent editable={editable}></PageContent>

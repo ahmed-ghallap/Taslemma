@@ -3,9 +3,9 @@ import WorkspaceSection from "./blocks/workspace-section/Index.jsx";
 
 export default function Index() {
   return (
-    <div className="flex h-screen flex-col overflow-y-scroll bg-slate-300">
+    <div className="flex h-max flex-col overflow-y-scroll bg-slate-300 lg:h-screen">
       <NavbarSection />
-      <WorkspaceSection className="flex-[1_1_0] py-3 pb-6" />
+      <WorkspaceSection className="py-3 pb-6 lg:flex-[1_1_0]" />
     </div>
   );
 }

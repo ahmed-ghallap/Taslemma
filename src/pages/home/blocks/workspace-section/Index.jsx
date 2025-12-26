@@ -7,8 +7,8 @@ export default function Workspace({ className }) {
     <DocumentProvider>
       <section className={className}>
         <div className="container grid h-full grid-cols-6 gap-8">
-          <PagePreviewer className="col-span-2 pt-9" />
-          <PageEditor className="col-span-4 flex flex-col" />
+          <PagePreviewer className="col-span-2 hidden pt-9 lg:flex" />
+          <PageEditor className="col-span-6 flex flex-col lg:col-span-4" />
         </div>
       </section>
     </DocumentProvider>

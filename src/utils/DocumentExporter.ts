@@ -97,6 +97,7 @@ class PdfExporter implements IExporter {
 
     // clone node
     const clone = this.node?.cloneNode(true) as HTMLElement;
+
     clone.style.width = WIDTH_PX + "px";
     clone.style.minHeight = HEIGHT_PX + "px";
     clone.style.borderRadius = "0";

@@ -1,6 +1,7 @@
 import Button from "@blocks/Button.jsx";
 import PdfIcon from "@blocks/PdfIcon";
 import { Chromium, Image } from "lucide-react";
+import { useDocument } from "@store/context";
 
 import DocExporter from "@utils/DocumentExporter";
 import {
@@ -10,8 +11,12 @@ import {
 } from "@utils/DocumentExporter";
 
 export default function ExportPanel({ docRef, className }) {
+  const { heading } = useDocument();
   const handelExport = (s) => {
-    new DocExporter().setStrategy(s).setNode(docRef.current).export("filename");
+    new DocExporter()
+      .setStrategy(s)
+      .setNode(docRef.current)
+      .export(heading || "Taslemma");
   };
   return (
     <div
