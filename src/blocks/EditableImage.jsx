@@ -6,6 +6,7 @@ import { ImageUp } from "lucide-react";
 
 export default function EditableImage() {
   const [loading, setLoading] = useState(true);
+  const [isDraging, setIsDraging] = useState(false);
 
   const { logo } = useDocument();
   const dispatch = useDocumentDispatch();
@@ -39,11 +40,19 @@ export default function EditableImage() {
   }, []);
 
   useEffect(() => {
-    const handleDragOver = (e) => e.preventDefault();
-    const handleDragEnter = (e) => e.preventDefault();
+    const handleDragOver = (e) => {
+      e.preventDefault();
+
+      setIsDraging(true);
+    };
+    const handleDragEnter = (e) => {
+      e.preventDefault();
+      setIsDraging(true);
+    };
 
     const handleDrop = (e) => {
       e.preventDefault();
+      setIsDraging(false);
 
       const files = e.dataTransfer.files;
 
@@ -55,6 +64,7 @@ export default function EditableImage() {
             const url = URL.createObjectURL(file);
 
             saveImageEffect(url);
+            setIsDraging(false);
           }
         }
       }
@@ -80,13 +90,13 @@ export default function EditableImage() {
     const url = URL.createObjectURL(file);
     dispatch(updateField("logo", url));
   };
-
   const ImageView = (
     <div
       onClick={() => inputRef.current.click()}
       className={
         "group relative aspect-square h-full w-full cursor-pointer overflow-hidden rounded-full " +
-        (logo === null ? "bg-primary-300 border-primary-600 border" : "")
+        (logo === null ? "bg-primary-300 border-primary-600 border " : " ") +
+        (isDraging ? "bg-primary-100! border-2 border-dashed" : "")
       }
     >
       {loading && logo !== null && <Spinner />}
@@ -95,7 +105,9 @@ export default function EditableImage() {
           key={logo}
           onLoad={() => setLoading(false)}
           onError={() => setLoading(false)}
-          className="h-full w-full cursor-pointer rounded-full object-cover transition-all duration-300 ease-in-out hover:scale-110"
+          className={
+            "h-full w-full cursor-pointer rounded-full object-cover transition-all duration-300 ease-in-out hover:scale-110"
+          }
           src={logo}
         />
       )}

@@ -34,7 +34,6 @@ const documentReducer = (state, action) => {
   const { past, future, current } = state;
   switch (action.type) {
     case "UNDO": {
-      console.log("Redo from store");
       if (past.length === 0) return state;
       return {
         past: past.slice(0, -1),
