@@ -52,7 +52,8 @@ export default function ToolbarPanel({ className }) {
   return (
     <nav
       className={
-        "flex h-max flex-wrap items-center gap-3 lg:h-6 lg:gap-6 " + className
+        "flex h-max flex-wrap items-center gap-3 lg:h-6 lg:-translate-y-3 lg:gap-6 " +
+        className
       }
     >
       <span className="bg-primary-200 flex gap-3 rounded-lg lg:gap-6">
