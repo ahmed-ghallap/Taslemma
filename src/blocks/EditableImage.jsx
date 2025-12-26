@@ -5,11 +5,11 @@ import { updateField } from "@store/actions";
 import { ImageUp } from "lucide-react";
 
 export default function EditableImage() {
-  const [loading, setLoading] = useState(true);
-  const [isDraging, setIsDraging] = useState(false);
-
   const { logo } = useDocument();
   const dispatch = useDocumentDispatch();
+
+  const [isLoading, setisLoading] = useState(true);
+  const [isDraging, setIsDraging] = useState(false);
 
   const inputRef = useRef(null);
   const saveImageEffect = useEffectEvent((url) => {
@@ -95,16 +95,16 @@ export default function EditableImage() {
       onClick={() => inputRef.current.click()}
       className={
         "group relative aspect-square h-full w-full cursor-pointer overflow-hidden rounded-full " +
-        (logo === null ? "bg-primary-300 border-primary-600 border " : " ") +
-        (isDraging ? "bg-primary-100! border-2 border-dashed" : "")
+        (logo === null ? "bg-primary-300 border-primary-600 border-2 " : " ") +
+        (isDraging ? "bg-primary-100! border-3! border-dashed" : "")
       }
     >
-      {loading && logo !== null && <Spinner />}
+      {isLoading && logo && <Spinner />}
       {logo && (
         <img
           key={logo}
-          onLoad={() => setLoading(false)}
-          onError={() => setLoading(false)}
+          onLoad={() => setisLoading(false)}
+          onError={() => setisLoading(false)}
           className={
             "h-full w-full cursor-pointer rounded-full object-cover transition-all duration-300 ease-in-out hover:scale-110"
           }
@@ -156,7 +156,7 @@ function Spinner() {
             fill="currentFill"
           />
         </svg>
-        <span className="sr-only">Loading...</span>
+        <span className="sr-only">isLoading...</span>
       </div>
     </article>
   );
