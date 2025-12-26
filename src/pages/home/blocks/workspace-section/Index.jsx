@@ -1,4 +1,4 @@
-import { DocumentProvider } from "@store/index";
+import DocumentProvider from "@store/DocumentProvider.jsx";
 import PagePreviewer from "@blocks/PagePreviewer.jsx";
 import PageEditor from "@blocks/PageEditor.jsx";
 

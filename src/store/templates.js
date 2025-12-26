@@ -6,8 +6,6 @@ import auc from "@assets/auc.png";
 import mit from "@assets/mit.jpg";
 import cows from "@assets/cows.jpg";
 
-import { Ribbon } from "lucide-react";
-
 const DATE = new Date().toLocaleDateString("en-EG", {
   day: "2-digit",
   month: "short",

@@ -4,7 +4,7 @@ import {
   useDocumentDispatch,
   useDocumentHistory,
   useDocument,
-} from "@store/index";
+} from "@store/context";
 import { updateTemplate, updateField } from "@store/actions";
 
 import Buttton from "@blocks/Button.jsx";

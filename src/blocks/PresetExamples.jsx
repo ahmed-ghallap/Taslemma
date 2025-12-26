@@ -1,6 +1,6 @@
 import { TEMPLATES } from "@store/templates.js";
 
-import { useDocumentDispatch } from "@store/index";
+import { useDocumentDispatch } from "@store/context";
 import { updateTemplate } from "@store/actions";
 
 import Button from "@blocks/Button";

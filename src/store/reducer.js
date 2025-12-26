@@ -1,37 +1,5 @@
-import { useContext, createContext, useReducer } from "react";
-
-import { TEMPLATES } from "@store/templates";
-
-const DocumentContext = createContext(null);
-const DocumentDispatchContext = createContext(null);
-const DocumentHistoryContext = createContext(null);
-
-export const DocumentProvider = ({ children }) => {
-  const [data, dispatch] = useReducer(
-    withHistoryLimit(documentReducer),
-    TEMPLATES.blank,
-  );
-  const history = { past: data.past, future: data.future };
-  return (
-    <DocumentDispatchContext value={dispatch}>
-      <DocumentContext value={data.current}>
-        <DocumentHistoryContext value={history}>
-          {children}
-        </DocumentHistoryContext>
-      </DocumentContext>
-    </DocumentDispatchContext>
-  );
-};
-
-export function useDocument() {
-  return useContext(DocumentContext);
-}
-export function useDocumentDispatch() {
-  return useContext(DocumentDispatchContext);
-}
-export function useDocumentHistory() {
-  return useContext(DocumentHistoryContext);
-}
+import { TEMPLATES } from "@store/templates.js";
+const STORAGE_KEY = "my_document_data";
 
 const documentReducer = (state, action) => {
   const { past, future, current } = state;
@@ -130,3 +98,12 @@ function withHistoryLimit(reducer, limit = 50) {
     return nextState;
   };
 }
+
+function initState(defaultTemplate) {
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) return JSON.parse(saved);
+
+  return defaultTemplate;
+}
+
+export { documentReducer, withHistoryLimit, initState, STORAGE_KEY };

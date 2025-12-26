@@ -1,6 +1,6 @@
 import Button from "@blocks/Button.jsx";
 import PdfIcon from "@blocks/PdfIcon";
-import { Chromium, Image, ExternalLink } from "lucide-react";
+import { Chromium, Image } from "lucide-react";
 
 import DocExporter from "@utils/DocumentExporter";
 import {

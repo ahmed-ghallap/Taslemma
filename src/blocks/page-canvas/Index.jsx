@@ -1,4 +1,4 @@
-import { useDocument, useDocumentDispatch } from "@store/index";
+import { useDocument } from "@store/context";
 
 import PageHeader from "./blocks/PageHeader";
 import PageContent from "./blocks/PageContent";

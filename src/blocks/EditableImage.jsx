@@ -1,5 +1,5 @@
 import { useRef, useEffect, useEffectEvent, useState } from "react";
-import { useDocument, useDocumentDispatch } from "@store/index";
+import { useDocument, useDocumentDispatch } from "@store/context";
 import { updateField } from "@store/actions";
 
 import { ImageUp } from "lucide-react";

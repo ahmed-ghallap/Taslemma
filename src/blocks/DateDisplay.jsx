@@ -1,4 +1,4 @@
-import { useDocument, useDocumentDispatch } from "@store/index";
+import { useDocument, useDocumentDispatch } from "@store/context";
 import { updateField } from "@store/actions";
 import EditableText from "@blocks/EditableText.jsx";
 
