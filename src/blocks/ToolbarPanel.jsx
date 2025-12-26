@@ -1,3 +1,5 @@
+import { useEffect, useEffectEvent } from "react";
+
 import {
   useDocumentDispatch,
   useDocumentHistory,
@@ -12,6 +14,30 @@ export default function ToolbarPanel({ className }) {
   const { dir } = useDocument();
   const dispatch = useDocumentDispatch();
   const { past, future } = useDocumentHistory();
+
+  const dispatchEffect = useEffectEvent((method) => {
+    return dispatch({ type: method });
+  });
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      const isMod = event.ctrlKey || event.metaKey; // Ctrl or Cmd
+      const isShift = event.shiftKey;
+      const key = event.key.toLowerCase();
+
+      if (isMod && !isShift && key === "z") {
+        event.preventDefault();
+        dispatchEffect("UNDO");
+      }
+
+      if ((isMod && key === "y") || (isMod && isShift && key === "z")) {
+        event.preventDefault();
+        dispatchEffect("REDO");
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [dispatch]);
 
   const handleUndo = () => {
     dispatch({ type: "UNDO" });
@@ -31,13 +57,13 @@ export default function ToolbarPanel({ className }) {
           sronly="undo button"
           onClick={handleUndo}
           disabled={past.length === 0}
-        ></Buttton>
+        />
         <Buttton
           icon={<Redo2 size={24} />}
           sronly="redo button"
           onClick={handleRedo}
           disabled={future.length === 0}
-        ></Buttton>
+        />
       </span>
       <Buttton
         icon={<X size={24} />}
