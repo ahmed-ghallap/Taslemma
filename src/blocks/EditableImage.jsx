@@ -8,7 +8,6 @@ export default function EditableImage() {
   const { logo } = useDocument();
   const dispatch = useDocumentDispatch();
 
-  const [isLoading, setisLoading] = useState(true);
   const [isDraging, setIsDraging] = useState(false);
 
   const inputRef = useRef(null);
@@ -99,24 +98,10 @@ export default function EditableImage() {
         (isDraging ? "bg-primary-100! border-3! border-dashed" : "")
       }
     >
-      {isLoading && logo && <Spinner />}
-      {logo && (
-        <img
-          key={logo}
-          onLoad={() => setisLoading(false)}
-          onError={() => setisLoading(false)}
-          className={
-            "h-full w-full cursor-pointer rounded-full object-cover transition-all duration-300 ease-in-out hover:scale-110"
-          }
-          src={logo}
-        />
-      )}
-
-      {
-        <div className="motion-bg-out-primary-950/60 motion-duration-200 absolute inset-0 hidden h-full w-full place-items-center group-hover:grid">
-          <ImageUp className="text-gray-200" size={"5cqi"} />
-        </div>
-      }
+      <LogoImage key={logo} src={logo} />
+      <div className="motion-bg-out-primary-950/60 motion-duration-200 absolute inset-0 hidden h-full w-full place-items-center group-hover:grid">
+        <ImageUp className="text-gray-200" size={"5cqi"} />
+      </div>
     </div>
   );
   return (
@@ -132,6 +117,24 @@ export default function EditableImage() {
     </>
   );
 }
+
+const LogoImage = ({ src }) => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  return (
+    <>
+      {isLoading && src && <Spinner />}
+      <img
+        src={src}
+        onLoad={() => setIsLoading(false)}
+        onError={() => setIsLoading(false)}
+        className="h-full w-full cursor-pointer rounded-full object-cover transition-all duration-300 ease-in-out hover:scale-110"
+        style={{ display: isLoading ? "none" : "block" }}
+        alt="Logo"
+      />
+    </>
+  );
+};
 
 function Spinner() {
   return (
