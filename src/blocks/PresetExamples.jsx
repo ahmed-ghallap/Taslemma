@@ -5,8 +5,9 @@ import { updateTemplate } from "@store/actions";
 
 import Button from "@blocks/Button";
 export default function PresetExamples({ className }) {
+  const Templates = { ...TEMPLATES };
   const dispatch = useDocumentDispatch();
-  const templateNames = Object.keys(TEMPLATES);
+  const templateNames = Object.keys(Templates);
   return (
     <article className={"rounded-xl bg-white py-3 shadow-xs " + className}>
       <div
@@ -19,7 +20,7 @@ export default function PresetExamples({ className }) {
             className="justify-center px-2 text-center text-nowrap"
             onClick={() => dispatch(updateTemplate(name))}
           >
-            {TEMPLATES[name].fullName}
+            {Templates[name].fullName}
           </Button>
         ))}
       </div>
