@@ -14,7 +14,7 @@ const DATE = new Date().toLocaleDateString("en-EG", {
 
 const TEMPLATES = {
   blank: {
-    fullName: "_Blank",
+    fullName: "صفحة فارغة",
     past: [],
     future: [],
     current: {

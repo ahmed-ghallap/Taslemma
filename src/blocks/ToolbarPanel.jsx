@@ -5,7 +5,7 @@ import {
   useDocumentHistory,
   useDocument,
 } from "@store/context";
-import { updateTemplate, updateField } from "@store/actions";
+import { clearDocument, updateField } from "@store/actions";
 
 import Buttton from "@blocks/Button.jsx";
 import { Redo2, Undo2, Languages, X } from "lucide-react";
@@ -46,7 +46,7 @@ export default function ToolbarPanel({ className }) {
     dispatch({ type: "REDO" });
   };
   const handleClear = () => {
-    dispatch(updateTemplate("blank"));
+    dispatch(clearDocument());
   };
 
   return (

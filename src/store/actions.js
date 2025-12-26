@@ -1,3 +1,6 @@
+const clearDocument = () => {
+  return { type: "CLEAR_DOCUMENT" };
+};
 const updateField = (field, value) => {
   return { type: "UPDATE_FIELD", field: field, value: value };
 };
@@ -36,4 +39,5 @@ export {
   removeArrayElement,
   addArrayElement,
   updateTemplate,
+  clearDocument,
 };

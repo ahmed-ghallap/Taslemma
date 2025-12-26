@@ -82,6 +82,13 @@ const documentReducer = (state, action) => {
         future: [],
       };
     }
+    case "CLEAR_DOCUMENT": {
+      return {
+        past: [],
+        current: { ...TEMPLATES.blank.current },
+        future: [],
+      };
+    }
 
     default: {
       throw new Error(`Unknown action: ${action.type}`);
