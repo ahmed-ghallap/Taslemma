@@ -50,8 +50,12 @@ export default function ToolbarPanel({ className }) {
   };
 
   return (
-    <nav className={"flex h-6 items-center gap-6 " + className}>
-      <span className="bg-primary-200 flex gap-6 rounded-lg">
+    <nav
+      className={
+        "flex h-max flex-wrap items-center gap-3 lg:h-6 lg:gap-6 " + className
+      }
+    >
+      <span className="bg-primary-200 flex gap-3 rounded-lg lg:gap-6">
         <Buttton
           icon={<Undo2 size={24} />}
           sronly="undo button"

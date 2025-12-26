@@ -13,7 +13,7 @@ export default function Button(props) {
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`bg-primary-200 hover:bg-primary-400 active:bg-primary-300 disabled:bg-primary-100 flex items-center gap-3 rounded-lg px-2 py-1 text-lg transition duration-200 disabled:cursor-not-allowed disabled:*:opacity-50 ${className}`}
+      className={`bg-primary-200 hover:bg-primary-400 active:bg-primary-300 disabled:bg-primary-100 flex items-center gap-2 rounded-lg px-2 py-1 text-sm transition duration-200 disabled:cursor-not-allowed disabled:*:opacity-50 lg:gap-3 lg:text-lg ${className}`}
     >
       {icon}
 

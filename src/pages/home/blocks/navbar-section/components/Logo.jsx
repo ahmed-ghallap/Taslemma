@@ -10,12 +10,12 @@ export default function Logo() {
     onLoadLogo();
   }, []);
   return (
-    <header className="flex gap-3 text-3xl font-bold">
-      <img src={logoUrl} alt="Taslema website Logo" />
-      <b className="decoration-primary-500 text-slate-800 underline decoration-4 underline-offset-6">
+    <header className="flex h-7 items-center gap-3 text-2xl leading-[100%] font-bold lg:h-12 lg:text-4xl">
+      <img className="h-full" src={logoUrl} alt="Taslema website Logo" />
+      <b className="decoration-primary-500 text-slate-800 decoration-4 underline-offset-6">
         Tasleem
       </b>
-      <b className="text-slate-800">ة</b>
+      <b className="text-primary-600">ة</b>
     </header>
   );
 }
