@@ -16,10 +16,10 @@ export default function PresetExamples({ className }) {
         {templateNames.map((name, i) => (
           <Button
             key={i}
-            className="justify-center px-2 text-center"
+            className="justify-center px-2 text-center text-nowrap"
             onClick={() => dispatch(updateTemplate(name))}
           >
-            {name}
+            {TEMPLATES[name].fullName}
           </Button>
         ))}
       </div>

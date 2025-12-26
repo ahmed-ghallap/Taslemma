@@ -1,5 +1,4 @@
 import bhi47Logo from "@assets/collage1.png";
-import blank from "@assets/blank.png";
 import cairo from "@assets/cairo.png";
 import alex from "@assets/alex.png";
 import ainShams from "@assets/ainShams.png";
@@ -17,6 +16,7 @@ const DATE = new Date().toLocaleDateString("en-EG", {
 
 const TEMPLATES = {
   blank: {
+    fullName: "_Blank",
     past: [],
     future: [],
     current: {
@@ -25,29 +25,24 @@ const TEMPLATES = {
         "SAVE ME (by Entr) or (click outside)",
         "EXPORT PDF or Image",
       ],
-
       logo: null,
-
       heading: "Start with one of our templates",
       subHeading: "⬅️ There are",
       submittedBy: "Submitted By :",
       supervisedBy: "Supervised By :",
       date: DATE,
       dir: "ltr",
-
       students: [
         { name: "Everything is editable ", studentId: "0000" },
         { name: "Everything is editable ", studentId: "0000" },
         { name: "Everything is editable ", studentId: "0000" },
       ],
-
       supervisors: ["Dr/ supervisor"],
     },
   },
 
-  // ───────────────────────────
-  // BHI47 (موجود)
   BHI47: {
+    fullName: "المعهد العالي للهندسة والتكنولوجيا بالبحيرة",
     past: [],
     future: [],
     current: {
@@ -68,9 +63,8 @@ const TEMPLATES = {
     },
   },
 
-  // ───────────────────────────
-  // جامعة القاهرة
   CU: {
+    fullName: "جامعة القاهرة",
     past: [],
     future: [],
     current: {
@@ -91,9 +85,8 @@ const TEMPLATES = {
     },
   },
 
-  // ───────────────────────────
-  // جامعة الإسكندرية
   ALEXU: {
+    fullName: "جامعة الإسكندرية",
     past: [],
     future: [],
     current: {
@@ -114,9 +107,8 @@ const TEMPLATES = {
     },
   },
 
-  // ───────────────────────────
-  // عين شمس
   ASU: {
+    fullName: "جامعة عين شمس",
     past: [],
     future: [],
     current: {
@@ -137,9 +129,8 @@ const TEMPLATES = {
     },
   },
 
-  // ───────────────────────────
-  // الجامعة الأمريكية بالقاهرة
   AUC: {
+    fullName: "الجامعة الأمريكية بالقاهرة",
     past: [],
     future: [],
     current: {
@@ -160,9 +151,8 @@ const TEMPLATES = {
     },
   },
 
-  // ───────────────────────────
-  // جامعة MIT (مثال عالمي)
   MIT: {
+    fullName: "جامعة MIT",
     past: [],
     future: [],
     current: {
@@ -182,7 +172,9 @@ const TEMPLATES = {
       supervisors: ["Dr/ supervisor"],
     },
   },
+
   DLI_AR: {
+    fullName: "معهد الدلتا (عربي)",
     past: [],
     future: [],
     current: {
@@ -191,16 +183,13 @@ const TEMPLATES = {
         "معهد تنطيط المواشي – الدلتا.",
         "قسم تكنولوجيا تنطيط الأبقار المتقدمة.",
       ],
-
       logo: cows,
-
       heading: "مشروع التخرج",
       subHeading: "السنة النهائية",
       submittedBy: "مقدم من :",
       supervisedBy: "تحت إشراف :",
       date: DATE,
       dir: "rtl",
-
       students: [{ name: "اسم الطالب", studentId: "0000" }],
       supervisors: ["د/ المشرف"],
     },
